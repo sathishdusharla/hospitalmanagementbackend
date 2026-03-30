@@ -1,0 +1,58 @@
+{
+  "auth": {
+    "loginRequest": {
+      "username": "patient",
+      "password": "password"
+    },
+    "loginResponse": {
+      "token": "<jwt-token>",
+      "username": "patient",
+      "role": "PATIENT",
+      "expiresInSeconds": 86400
+    }
+  },
+  "patient": {
+    "bookAppointmentRequest": {
+      "patientId": 1,
+      "hospitalId": 1,
+      "doctorId": 1,
+      "appointmentDateTime": "2026-03-20T10:30:00",
+      "symptomsOrDisease": "Fever and body pain"
+    },
+    "reportComplaintRequest": {
+      "patientId": 1,
+      "consultationId": 2,
+      "prescriptionId": 1,
+      "complaintType": "EXPENSIVE_MEDICINE",
+      "description": "Medicine price is too high compared to market.",
+      "reportedAmount": 1500.00
+    }
+  },
+  "doctor": {
+    "addDiagnosisRequest": {
+      "consultationId": 3,
+      "diagnosis": "Common Cold",
+      "notes": "Rest, hydration, and follow-up if fever persists"
+    },
+    "addPrescriptionRequest": {
+      "consultationId": 3,
+      "notes": "Take after food",
+      "medicineIds": [1, 2]
+    }
+  },
+  "admin": {
+    "systemOverviewResponse": {
+      "totalHospitals": 10,
+      "totalDoctors": 45,
+      "totalPatients": 300,
+      "totalCorruptionAlerts": 17
+    },
+    "alertResponseItem": {
+      "id": 11,
+      "type": "HIGH_COST_MEDICINE",
+      "severity": "MEDIUM",
+      "message": "Medicine Expensive Drug cost higher than standard",
+      "reviewed": false
+    }
+  }
+}
